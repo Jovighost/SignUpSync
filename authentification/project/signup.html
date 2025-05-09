@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sign up</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="subscription">
+        <h1>Sign up Page</h1>
+        <div class="signin">
+           <form action="connect.php" method="post" onsubmit="return validatePasswords();">
+            <label for="name">
+               <p>Name:</p> 
+                <input type="text" placeholder="Name" name="name" required>
+    
+            </label>
+            <label for="email">
+                <p>Email:</p>
+                <input type="email" placeholder="Enter valid email" name="email" required>
+            </label>
+
+            <label for="password">
+                <p>password:</p>
+                <input type="password" placeholder="xxxxxxxx" name="password" required>
+            </label>
+            <label for="">
+                <p>Repeat Password:</p>
+                <input type="password" placeholder="xxxxxxxx" name="repeat" required>
+            </label>
+            <div class="error-message" id="error-message"></div>
+           
+        </div>
+        <div class="btn-btn">
+            <button class="confirm">Confirm Sign up</button>
+            <button class="reset" type="reset">Reset</button>
+        </form>
+        </div>
+
+        <script src="form.js"></script>
+</body>
+</html>
