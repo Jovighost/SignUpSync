@@ -1,4 +1,6 @@
 <?php
+session_start(); // Start the session
+
 // Check if form fields are set
 if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])) {
     $name = $_POST['name'];
@@ -32,7 +34,12 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])
             $stmt->bind_param("sss", $name, $email, $hashed_password);
 
             if ($stmt->execute()) {
-                echo "CONGRATULATIONS, YOU HAVE SUCCESSFULLY CREATED AND ACCOUNT."; 
+                // Set success message in session
+                $_SESSION['success_message'] = "CONGRATULATIONS, YOU HAVE SUCCESSFULLY CREATED AN ACCOUNT.";
+                
+                // Redirect to sign-up page
+                header("Location: signup.php");
+                exit();
             } else {
                 echo "Error: " . $stmt->error;
             }
@@ -44,6 +51,6 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])
     // Close the database connection
     $conn->close();
 } else {
-    echo "CONGRATULATION,YOU ARE LOGED IN.";
+    echo "CONGRATULATIONS, YOU ARE LOGGED IN.";
 }
 ?>
